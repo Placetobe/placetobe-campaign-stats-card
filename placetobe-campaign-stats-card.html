@@ -1,0 +1,171 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../placetobe-styles/placetobe-styles.html">
+<link rel="import" href="../placetobe-button/placetobe-button.html">
+<link rel="import" href="../placetobe-campaign-progress-bar/placetobe-campaign-progress-bar.html">
+
+<!--
+`placetobe-campaign-stats-card`
+Placetobe Campaign Statistics Card
+
+@demo demo/index.html 
+-->
+
+<dom-module id="placetobe-campaign-stats-card">
+  <template>
+    <style>
+      :host {
+        display: block;
+        --placetobe-text-color: red;
+      }
+
+      :host section {
+
+      }
+
+      :host main, :host footer {
+        display: block;
+      }
+
+      :host main {
+        background-color: var(--placetobe-color-gray);
+        border-radius: 3px 3px 0 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      :host main div {
+        flex: 1;
+        padding: 9px 18px;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+      }
+
+      :host main article {
+        color: var(--placetobe-color-darkblue);
+      }
+
+      #funded-capital {
+        color: var(--placetobe-color-green);
+        padding-bottom: 9px;
+      }
+
+      :host footer {
+        background-color: var(--placetobe-color-darkblue);
+        height: 100px;
+        width: 100%;
+        border-radius: 0 0 3px 3px;
+        padding: 18px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      :host footer placetobe-campaign-progress-bar {
+        flex: 1;
+        margin-top: -24px;
+      }
+
+      :host footer placetobe-button {
+        flex: none;
+        margin-left: 18px;
+      }
+
+      @media(max-width: 600px) {
+        
+        #funded-capital {
+          @apply(--placetobe-font-heading3-bold-small);
+        }
+
+        :host main article {
+          @apply(--placetobe-font-body-serif-small);
+        }
+
+        :host main article strong {
+          @apply(--placetobe-font-body-serif-small-bold);
+        }
+      }
+
+      @media(min-width: 600px) {
+        
+        #funded-capital {
+          @apply(--placetobe-font-heading3-bold-large);
+        }
+
+        :host main {
+          flex-direction: row;
+          align-items: stretch;
+          padding: 18px 0;
+        }
+
+        :host main article {
+          @apply(--placetobe-font-body-serif-large);
+        }
+
+        :host main article strong {
+          @apply(--placetobe-font-body-serif-large-bold);
+        }
+
+        :host main div {
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+
+        :host main div:not(:first-of-type) {
+          border-left: 1px solid rgb(151, 151, 151);
+        }
+
+      }
+
+    </style>
+
+    <section>
+      <main>
+        <div>
+          <h3 id="funded-capital">€100000</h3>
+          <article>
+            Minimaal: <strong>€500.000</strong><br>
+            tot maximaal: <strong>€1.500.000</strong>
+          </article>
+        </div>
+        <div>
+          <article>
+            <strong>Lening campagne</strong><br>
+            <strong>42%</strong> totaalrendement<br>
+            <strong>6%</strong> nominaal jaarrendement<br>
+            <strong>7.29%</strong> effectief jaarrendement
+          </article>
+        </div>
+        <div>
+          <article>
+          <strong>Looptijd is 60 maanden</strong><br>
+            Start op <strong>23-05-2014</strong><br>
+            <strong>172</strong> investeerders<br>
+            Gemiddelde investering: <strong>€4.042</strong>
+          </article>
+        </div>
+      </main>
+      <footer>
+        <placetobe-campaign-progress-bar
+          required-funding="100000"
+          currently-funded="70000"
+        ></placetobe-campaign-progress-bar>
+        <placetobe-button>Investeren</placetobe-button>
+      </footer>
+    </section>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'placetobe-campaign-stats-card',
+
+      properties: {
+      },
+
+    });
+  </script>
+</dom-module>
