@@ -6,7 +6,8 @@
     "polymer": "Polymer/polymer#^1.6.0",
     "placetobe-styles": "Placetobe/placetobe-styles",
     "placetobe-button": "Placetobe/placetobe-button",
-    "placetobe-campaign-progress-bar": "Placetobe/placetobe-campaign-progress-bar"
+    "placetobe-campaign-progress-bar": "Placetobe/placetobe-campaign-progress-bar",
+    "caas-campaign-stats": "CaasElements/caas-campaign-stats"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
