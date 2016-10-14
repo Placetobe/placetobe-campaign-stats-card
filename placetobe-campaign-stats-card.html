@@ -134,10 +134,9 @@ Placetobe Campaign Statistics Card
       number-of-funders="{{numberOfFunders}}"
       average-funding="{{averageFunding}}"
       start-time="{{campaignStartTime}}"
-      loan-campaign="{{loanCampaign}}"
-      shares-campaign="{{sharesCampaign}}"
-      presale-campaign="{{presaleCampaign}}"
       closed="{{campaignClosed}}"
+      categories="{{campaignCategories}}"
+      labels="{{campaignLabels}}"
     ></caas-campaign-stats>
 
     <section>
@@ -152,23 +151,13 @@ Placetobe Campaign Statistics Card
         <div>
           <article>
             
-            <template is="dom-if" if="[[loanCampaign]]">
-            <strong>Lening campagne</strong><br>
-            </template>
-            
-            <template is="dom-if" if="[[sharesCampaign]]">
-            <strong>Aandelen campagne</strong><br>
-            </template>
-            
-            <template is="dom-if" if="[[presaleCampaign]]">
-            <strong>Voorverkoop campagne</strong><br>
-            </template>
+            <strong>[[campaignLabels]] campagne</strong><br>
 
             <template is="dom-if" if="[[campaignClosed]]">
               Deze campagne is gesloten              
             </template>
 
-            <template is="dom-if" if="[[!presaleCampaign]]">
+            <template is="dom-if" if="[[!campaignCategories.presale]]">
             <strong>[[nominalInterestRate]]%</strong> totaalrendement<br>
             <strong>[[nominalInterestRatePerYear]]%</strong> nominaal jaarrendement<br>
             <strong>[[effectiveInterestRatePerYear]]%</strong> effectief jaarrendement
@@ -179,12 +168,14 @@ Placetobe Campaign Statistics Card
         <div>
           <article>
 
-            <template is="dom-if" if="[[!presaleCampaign]]">
+            <template is="dom-if" if="[[!campaignCategories.presale]]">
             Looptijd is <strong>[[interestRateRefundTerms]] maanden</strong><br>
             </template>
+
             Start op <strong>[[_parseTimeToDate(campaignStartTime)]]</strong><br>
             <strong>[[numberOfFunders]]</strong> investeerder(s)<br>
             Gemiddelde investering: <strong>€[[averageFunding]]</strong>
+
           </article>
         </div>
       </main>
