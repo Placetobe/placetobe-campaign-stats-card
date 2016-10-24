@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../placetobe-behaviors/placetobe-styles-behavior.html">
 <link rel="import" href="../placetobe-styles/placetobe-styles.html">
 <link rel="import" href="../placetobe-button/placetobe-button.html">
 <link rel="import" href="../placetobe-campaign-progress-bar/placetobe-campaign-progress-bar.html">
@@ -16,7 +17,6 @@ Placetobe Campaign Statistics Card
     <style>
       :host {
         display: block;
-        --placetobe-text-color: red;
       }
 
       :host section {
@@ -73,39 +73,25 @@ Placetobe Campaign Statistics Card
         margin-left: 18px;
       }
 
-      @media(max-width: 600px) {
         
-        #funded-capital {
-          @apply(--placetobe-font-heading3-bold-small);
-        }
+      #funded-capital {
+        @apply(--placetobe-font-heading3-bold);
+      }
 
-        :host main article {
-          @apply(--placetobe-font-body-serif-small);
-        }
+      :host main article {
+        @apply(--placetobe-font-body-serif);
+      }
 
-        :host main article strong {
-          @apply(--placetobe-font-body-serif-small-bold);
-        }
+      :host main article strong {
+        @apply(--placetobe-font-body-serif-bold);
       }
 
       @media(min-width: 600px) {
         
-        #funded-capital {
-          @apply(--placetobe-font-heading3-bold-large);
-        }
-
         :host main {
           flex-direction: row;
           align-items: stretch;
           padding: 18px 0;
-        }
-
-        :host main article {
-          @apply(--placetobe-font-body-serif-large);
-        }
-
-        :host main article strong {
-          @apply(--placetobe-font-body-serif-large-bold);
         }
 
         :host main div {
@@ -160,8 +146,8 @@ Placetobe Campaign Statistics Card
             <template is="dom-if" if="[[!campaignCategories.presale]]">
             <strong>[[nominalInterestRate]]%</strong> totaalrendement<br>
             <strong>[[nominalInterestRatePerYear]]%</strong> nominaal jaarrendement<br>
-            <strong>[[effectiveInterestRatePerYear]]%</strong> effectief jaarrendement
-            </template>
+<!--             <strong>[[effectiveInterestRatePerYear]]%</strong> effectief jaarrendement
+ -->            </template>
 
           </article>
         </div>
@@ -185,7 +171,7 @@ Placetobe Campaign Statistics Card
           maximum-funding="[[maximumFunding]]"
           currently-funded="[[currentlyFunded]]"
         ></placetobe-campaign-progress-bar>
-        <placetobe-button hidden$="[[campaignClosed]]">Investeren</placetobe-button>
+        <placetobe-button hidden$="[[campaignClosed]]" on-tap="_handleInvestButtonTap">Investeren</placetobe-button>
       </footer>
     </section>
 
@@ -195,6 +181,7 @@ Placetobe Campaign Statistics Card
     Polymer({
 
       is: 'placetobe-campaign-stats-card',
+      behaviors: [PlacetobeStylesBehavior],
 
       properties: {
         
@@ -208,6 +195,10 @@ Placetobe Campaign Statistics Card
           value: null
         }
 
+      },
+
+      _handleInvestButtonTap: function() {
+        this.fire('invest-button-tap');
       },
 
       _parseTimeToDate: function(time) {
