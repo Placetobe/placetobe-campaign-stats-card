@@ -28,18 +28,16 @@ Placetobe Campaign Statistics Card
       }
 
       :host main {
+        @apply(--placetobe-flex-layout--vertical);
         background-color: var(--placetobe-color-gray);
         border-radius: 3px 3px 0 0;
         padding: 0;
-        display: flex;
-        flex-direction: column;
       }
 
       :host main div {
-        flex: 1;
-        padding: 18px;
-        display: flex;
-        flex-direction: column;
+        @apply(--placetobe-flex-item--1);
+        @apply(--placetobe-flex-layout--vertical);
+        padding: var(--placetobe-margin);
       }
 
       :host main article {
@@ -48,29 +46,29 @@ Placetobe Campaign Statistics Card
 
       :host #funded-capital {
         color: var(--placetobe-color-green);
-        padding-bottom: 9px;
+        padding-bottom: calc( var(--placetobe-margin) / 2);
       }
 
       :host footer {
+        @apply(--placetobe-border-box);
+        @apply(--placetobe-flex-layout--horizontal);
+        @apply(--placetobe-flex-align--center);
+        @apply(--placetobe-cross-align--center);
         background-color: var(--placetobe-color-darkblue);
-        height: 100px;
+        height: calc( var(--placetobe-margin) * 5 );
         width: 100%;
-        border-radius: 0 0 3px 3px;
-        padding: 18px;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        border-radius: 0 0 var(--placetobe-border-radius-size) var(--placetobe-border-radius-size);
+        padding: var(--placetobe-margin);
       }
 
       :host footer placetobe-campaign-progress-bar {
-        flex: 1;
+        @apply(--placetobe-flex-item--1);
         margin-top: -24px;
       }
 
       :host footer placetobe-button {
-        flex: none;
-        margin-left: 18px;
+        @apply(--placetobe-flex-item--none);
+        margin-left: var(--placetobe-margin);
       }
 
         
@@ -89,9 +87,9 @@ Placetobe Campaign Statistics Card
       @media(min-width: 601px) {
         
         :host main {
-          flex-direction: row;
-          align-items: stretch;
-          padding: 18px 0;
+          @apply(--placetobe-flex-layout--horizontal);
+          @apply(--placetobe-cross-align--stretch);
+          padding: var(--placetobe-margin) 0;
         }
 
         :host main div {
