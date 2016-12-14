@@ -118,6 +118,9 @@ Placetobe Campaign Statistics Card
       number-of-funders="{{numberOfFunders}}"
       average-funding="{{averageFunding}}"
       start-time="{{campaignStartTime}}"
+      days-left="{{daysLeft}}"
+      started="{{campaignStarted}}"
+      running="{{campaignRunning}}"
       closed="{{campaignClosed}}"
       categories="{{campaignCategories}}"
       labels="{{campaignLabels}}"
@@ -138,7 +141,7 @@ Placetobe Campaign Statistics Card
             <strong>[[campaignLabels]] campagne</strong><br>
 
             <template is="dom-if" if="[[campaignClosed]]">
-              Deze campagne is gesloten              
+              Deze campagne is gesloten<br>           
             </template>
 
             <template is="dom-if" if="[[!campaignCategories.presale]]">
@@ -156,7 +159,14 @@ Placetobe Campaign Statistics Card
             Looptijd is <strong>[[interestRateRefundTerms]] maanden</strong><br>
             </template>
 
+            <template is="dom-if" if="[[!campaignStarted]]">
             Start op <strong>[[_parseTimeToDate(campaignStartTime)]]</strong><br>
+            </template>
+            
+            <template is="dom-if" if="[[campaignRunning]]">
+            Nog <strong>[[daysLeft]] dagen te gaan</strong><br>
+            </template>
+            
             <strong>[[numberOfFunders]]</strong> investeerder(s)<br>
             Gemiddelde investering: <strong>€[[averageFunding]]</strong>
 
