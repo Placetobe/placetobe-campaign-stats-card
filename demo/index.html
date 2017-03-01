@@ -16,6 +16,7 @@
     
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../placetobe-button/placetobe-button.html">
 
     <link rel="import" href="../placetobe-campaign-stats-card.html">
 
@@ -24,17 +25,21 @@
         --demo-snippet-demo: {
           display: block;
         }
-      }    </style>
+      }
+    </style>
   </head>
   <body>
 
       <h3>Basic placetobe-campaign-stats-card Demo</h3>
       <demo-snippet>
-        <template>
+        <template is="dom-bind" campaign-closed="[[campaignClosed]]">
           <placetobe-campaign-stats-card
             api-endpoint="http://canapi.local"
             campaign-id="429"
-          ></placetobe-campaign-stats-card>
+            campaign-closed="{{campaignClosed}}"
+          >
+          <placetobe-button hidden$="[[campaignClosed]]"><span>Investeren</span></placetobe-button>            
+          </placetobe-campaign-stats-card>
         </template>
       </demo-snippet>
 

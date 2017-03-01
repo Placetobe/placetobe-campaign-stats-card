@@ -1,7 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../placetobe-behaviors/placetobe-styles-behavior.html">
 <link rel="import" href="../placetobe-styles/placetobe-styles.html">
-<link rel="import" href="../placetobe-button/placetobe-button.html">
 <link rel="import" href="../placetobe-campaign-progress-bar/placetobe-campaign-progress-bar.html">
 <link rel="import" href="../caas-campaign-stats/caas-campaign-stats.html">
 
@@ -66,11 +65,10 @@ Placetobe Campaign Statistics Card
         margin-top: -24px;
       }
 
-      :host footer placetobe-button {
+      :host ::slotted(placetobe-button) {
         @apply(--placetobe-flex-item--none);
         margin-left: var(--placetobe-margin);
       }
-
         
       :host #funded-capital {
         @apply(--placetobe-font-heading3-bold);
@@ -179,7 +177,7 @@ Placetobe Campaign Statistics Card
           maximum-funding="[[maximumFunding]]"
           currently-funded="[[currentlyFunded]]"
         ></placetobe-campaign-progress-bar>
-        <placetobe-button hidden$="[[campaignClosed]]" on-tap="_handleInvestButtonTap"><span>Investeren</span></placetobe-button>
+        <slot></slot>
       </footer>
     </section>
 
@@ -203,10 +201,6 @@ Placetobe Campaign Statistics Card
           value: null
         }
 
-      },
-
-      _handleInvestButtonTap: function() {
-        this.fire('invest-button-tap');
       },
 
       _parseTimeToDate: function(time) {
