@@ -32,13 +32,25 @@
 
       <h3>Basic placetobe-campaign-stats-card Demo</h3>
       <demo-snippet>
-        <template is="dom-bind" campaign-closed="[[campaignClosed]]">
+        <template>
           <placetobe-campaign-stats-card
             api-endpoint="http://canapi.local"
             campaign-id="429"
+          >
+          </placetobe-campaign-stats-card>
+        </template>
+      </demo-snippet>
+
+      <h3>+ Button Demo</h3>
+      <demo-snippet>
+        <template is="dom-bind" campaign-closed="[[campaignClosed]]">
+          <placetobe-campaign-stats-card
+            api-endpoint="http://canapi.local"
+            campaign-id="717"
             campaign-closed="{{campaignClosed}}"
           >
-          <placetobe-button hidden$="[[campaignClosed]]"><span>Investeren</span></placetobe-button>            
+          <placetobe-button hidden$="[[campaignClosed]]"
+          ><span>Investeer</span></placetobe-button>            
           </placetobe-campaign-stats-card>
         </template>
       </demo-snippet>
