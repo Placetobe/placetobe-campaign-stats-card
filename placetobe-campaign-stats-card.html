@@ -84,23 +84,22 @@ Placetobe Campaign Statistics Card
 
       @media(min-width: 601px) {
         
-        :host main {
+        :host(:not([vertical])) main {
           @apply(--placetobe-flex-layout--horizontal);
           @apply(--placetobe-cross-align--stretch);
           padding: var(--placetobe-margin) 0;
         }
 
-        :host main div {
+        :host(:not([vertical])) main div {
           padding-top: 0;
           padding-bottom: 0;
         }
 
-        :host main div:not(:first-of-type) {
+        :host(:not([vertical])) main div:not(:first-of-type) {
           border-left: 1px solid rgb(151, 151, 151);
         }
 
       }
-
     </style>
 
     <caas-campaign-stats
@@ -204,6 +203,12 @@ Placetobe Campaign Statistics Card
         campaignClosed: {
           type: Boolean,
           notify: true
+        },
+
+        vertical: {
+          type: Boolean,
+          value: false,
+          reflectToAttribute: true
         }
 
       },
