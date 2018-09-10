@@ -103,6 +103,7 @@ Placetobe Campaign Statistics Card
     </style>
 
     <caas-campaign-stats
+      active-role="entrepreneur"
       api-endpoint="[[apiEndpoint]]"
       campaign-id="[[campaignId]]"
       currently-funded="{{currentlyFunded}}"
@@ -197,7 +198,7 @@ Placetobe Campaign Statistics Card
 
         campaignId: {
           type: String,
-          value: null
+          notify: true
         },
 
         campaignClosed: {
